@@ -93,9 +93,9 @@ class ClearNotificationPlugin: FlutterPlugin, MethodCallHandler {
         ) as NotificationManager
         val notificationList = notificationManager.activeNotifications
 
-        
+        result.success(notificationList)
 
-        result.success(false)
+//        result.success(false)
         return
       }
       else -> {

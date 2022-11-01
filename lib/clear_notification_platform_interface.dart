@@ -39,7 +39,7 @@ abstract class ClearNotificationPlatform extends PlatformInterface {
     throw UnimplementedError('clearAndroidNotificationWithIDs() has not been implemented.');
   }
 
-  Future<bool?> clearNotificationWithKeyValues(String key, List<dynamic> values, int dataTypeValue) {
+  Future<dynamic?> clearNotificationWithKeyValues(String key, List<dynamic> values, int dataTypeValue) {
     throw UnimplementedError('clearNotificationWithKeyValues() has not been implemented.');
   }
 }
