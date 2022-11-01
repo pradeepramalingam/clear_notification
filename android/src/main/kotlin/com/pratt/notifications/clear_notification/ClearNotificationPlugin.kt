@@ -93,14 +93,9 @@ class ClearNotificationPlugin: FlutterPlugin, MethodCallHandler {
         ) as NotificationManager
         val notificationList = notificationManager.activeNotifications
 
-        var notificationListStr: Array<String> = []
-        for (notificationInfo in notificationList) {
-          notificationListStr.add(notificationInfo.toString())
-        }
-        Log.d("TAG", "${notificationListStr}")
-        result.success("${notificationListStr}")
+        Log.d("TAG", "${notificationList}")
 
-//        result.success(false)
+        result.success(false)
         return
       }
       else -> {
