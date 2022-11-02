@@ -98,7 +98,9 @@ class ClearNotificationPlugin: FlutterPlugin, MethodCallHandler {
         Log.i("notificationList: ", "${notificationList}")
 
         for (notificationInfo in notificationList) {
-          Log.i("notificationInfo: ", "${notificationInfo.getId()}")
+          Log.i("notificationInfo-id: ", "${notificationInfo.getId()}")
+          Log.i("notificationInfo-notification: ", "${notificationInfo.getNotification()}")
+          Log.i("notificationInfo-notification-desc: ", "${notificationInfo.getNotification().toString()}")
         }
         result.success(false)
         return
