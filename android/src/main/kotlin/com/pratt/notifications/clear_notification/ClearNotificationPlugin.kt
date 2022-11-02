@@ -4,6 +4,8 @@ import android.app.NotificationManager
 import android.content.Context
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
+import android.util.Log ;
+import android.service.notification.StatusBarNotification
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -91,10 +93,13 @@ class ClearNotificationPlugin: FlutterPlugin, MethodCallHandler {
           context,
           NotificationManager::class.java
         ) as NotificationManager
-        val notificationList = notificationManager.activeNotifications
+        val notificationList: Array<StatusBarNotification> = notificationManager.activeNotifications
+        Log.i("notificationListCount: ", "${notificationList.size}")
+        Log.i("notificationList: ", "${notificationList}")
 
-        Log.d("TAG", "${notificationList}")
-
+        for (notificationInfo in notificationList) {
+          Log.i("notificationInfo: ", "${notificationInfo.getId()}")
+        }
         result.success(false)
         return
       }
