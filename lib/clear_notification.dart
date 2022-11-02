@@ -18,7 +18,7 @@ class ClearNotification {
     return ClearNotificationPlatform.instance.clearAndroidNotificationWithIDs(notificationIDs);
   }
 
-  Future<dynamic?> clearNotificationWithKeyValues(String key, List<dynamic> values, int dataTypeValue) {
+  Future<bool?> clearNotificationWithKeyValues(String key, List<dynamic> values, int dataTypeValue) {
     // dataTypeValue
     //   0 => int
     //   1 => String

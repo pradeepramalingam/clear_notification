@@ -30,8 +30,8 @@ class MethodChannelClearNotification extends ClearNotificationPlatform {
     return result;
   }
 
-  Future<dynamic?> clearNotificationWithKeyValues(String key, List<dynamic> values, int dataTypeValue) async {
-    final result = await methodChannel.invokeMethod<dynamic>('clearNotificationWithKeyValues', {"keyToFilter": key, "valuesToFilter": values, "valueDataType": dataTypeValue});
+  Future<bool?> clearNotificationWithKeyValues(String key, List<dynamic> values, int dataTypeValue) async {
+    final result = await methodChannel.invokeMethod<bool>('clearNotificationWithKeyValues', {"keyToFilter": key, "valuesToFilter": values, "valueDataType": dataTypeValue});
     return result;
   }
 }
