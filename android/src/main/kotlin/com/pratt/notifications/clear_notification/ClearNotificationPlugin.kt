@@ -1,6 +1,7 @@
 package com.pratt.notifications.clear_notification
 
 import android.app.NotificationManager
+import android.app.Notification
 import android.content.Context
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
@@ -89,6 +90,16 @@ class ClearNotificationPlugin: FlutterPlugin, MethodCallHandler {
           return
         }
 
+//        val notifier: NotificationManager =
+//          this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//        val activeNotifications = notifier.activeNotifications
+
+//        for (activeNotification in activeNotifications) {
+//          val activeNotificationPayload: HashMap<String, Any> = HashMap()
+//          activeNotificationPayload["id"] = activeNotification.id
+//          val notification: Notification = activeNotification.notification
+//        }
+
         val notificationManager = ContextCompat.getSystemService(
           context,
           NotificationManager::class.java
@@ -100,7 +111,9 @@ class ClearNotificationPlugin: FlutterPlugin, MethodCallHandler {
         for (notificationInfo in notificationList) {
           Log.i("notificationInfo-id: ", "${notificationInfo.getId()}")
           Log.i("notificationInfo-notification: ", "${notificationInfo.getNotification()}")
-          Log.i("notificationInfo-notification-desc: ", "${notificationInfo.getNotification().toString()}")
+          Log.i("notificationInfo-notification-desc: ", "${notificationInfo.getNotification().extras}")
+          val notificationData: Notification = notificationInfo.notification
+          Log.i("notification-data: ", "${notificationData.extras}")
         }
         result.success(false)
         return
