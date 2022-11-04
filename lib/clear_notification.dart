@@ -2,10 +2,6 @@
 import 'clear_notification_platform_interface.dart';
 
 class ClearNotification {
-  Future<String?> getPlatformVersion() {
-    return ClearNotificationPlatform.instance.getPlatformVersion();
-  }
-
   Future<bool?> clearAllNotifications() {
     return ClearNotificationPlatform.instance.clearAllNotifications();
   }

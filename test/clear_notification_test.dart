@@ -9,9 +9,6 @@ class MockClearNotificationPlatform
     implements ClearNotificationPlatform {
 
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
-
-  @override
   Future<bool?> clearAllNotifications() => Future.value(true);
 
   @override
@@ -36,6 +33,6 @@ void main() {
     MockClearNotificationPlatform fakePlatform = MockClearNotificationPlatform();
     ClearNotificationPlatform.instance = fakePlatform;
 
-    expect(await clearNotificationPlugin.getPlatformVersion(), '42');
+    expect(await clearNotificationPlugin.clearAllNotifications(), true);
   });
 }

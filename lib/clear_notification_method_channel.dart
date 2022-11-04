@@ -9,12 +9,6 @@ class MethodChannelClearNotification extends ClearNotificationPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('clear_notification');
 
-  @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
-  }
-
   Future<bool?> clearAllNotifications() async {
     final result = await methodChannel.invokeMethod<bool>('clearAllNotifications');
     return result;

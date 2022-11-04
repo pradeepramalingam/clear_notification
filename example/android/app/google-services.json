@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "371278635404",
+    "project_id": "corp-gi-transitnet",
+    "storage_bucket": "corp-gi-transitnet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371278635404:android:7defebdc76c09f6039f6a9",
+        "android_client_info": {
+          "package_name": "com.sgs.flutter.transitnet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371278635404-d6qm65n35sld7sh19agkqklna6bkb6om.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQOUV1JbcY9HXp8j8I2M6RtvcVWYvNiWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371278635404-d6qm65n35sld7sh19agkqklna6bkb6om.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "371278635404-epl8m2j1agtvnd0bd3s3jae40durgi1q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sgs.flutter.transitnet.uat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371278635404:android:25728271073a8bcb39f6a9",
+        "android_client_info": {
+          "package_name": "com.sgs.flutter.transitnet.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371278635404-d6qm65n35sld7sh19agkqklna6bkb6om.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQOUV1JbcY9HXp8j8I2M6RtvcVWYvNiWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371278635404-d6qm65n35sld7sh19agkqklna6bkb6om.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "371278635404-epl8m2j1agtvnd0bd3s3jae40durgi1q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sgs.flutter.transitnet.uat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371278635404:android:149dab5d48c6f67339f6a9",
+        "android_client_info": {
+          "package_name": "com.sgs.flutter.transitnet.uat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371278635404-d6qm65n35sld7sh19agkqklna6bkb6om.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQOUV1JbcY9HXp8j8I2M6RtvcVWYvNiWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371278635404-d6qm65n35sld7sh19agkqklna6bkb6om.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "371278635404-epl8m2j1agtvnd0bd3s3jae40durgi1q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sgs.flutter.transitnet.uat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,7 @@
 package com.pratt.notifications.clear_notification
 
+import android.os.Bundle
+import org.json.JSONObject
 import android.app.NotificationManager
 import android.app.Notification
 import android.content.Context
@@ -109,11 +111,32 @@ class ClearNotificationPlugin: FlutterPlugin, MethodCallHandler {
         Log.i("notificationList: ", "${notificationList}")
 
         for (notificationInfo in notificationList) {
-          Log.i("notificationInfo-id: ", "${notificationInfo.getId()}")
-          Log.i("notificationInfo-notification: ", "${notificationInfo.getNotification()}")
-          Log.i("notificationInfo-notification-desc: ", "${notificationInfo.getNotification().extras}")
-          val notificationData: Notification = notificationInfo.notification
-          Log.i("notification-data: ", "${notificationData.extras}")
+          Log.i("notificationInfo: ", "${notificationInfo}")
+          Log.i("notificationInfoDesc: ", "${notificationInfo.toString()}")
+          Log.i("notificationInfo-id: ", "${notificationInfo.id}")
+          Log.i("notificationInfo-Keys: ", "${notificationInfo.key}")
+          Log.i("notificationInfo-GKeys: ", "${notificationInfo.groupKey}")
+          Log.i("notificationInfo-oppkg: ", "${notificationInfo.opPkg}")
+          Log.i("notificationInfo-pkgName: ", "${notificationInfo.packageName}")
+          Log.i("notificationInfo-tag: ", "${notificationInfo.tag}")
+          Log.i("notificationInfo-uid: ", "${notificationInfo.uid}")
+          Log.i("notificationInfo-descContents: ", "${notificationInfo.describeContents()}")
+
+          val notificationData = notificationInfo.notification
+          Log.i("notificationData: ", "${notificationData}")
+          Log.i("notificationDataDesc: ", "${notificationData.toString()}")
+          Log.i("notificationDataGroup: ", "${notificationData.group}")
+
+          val bundleData: Bundle = notificationData.extras
+          Log.i("notificationExtraData: ", "${bundleData}")
+
+          val bundleToString = bundleData.keySet()
+            .joinToString(", ", "{", "}") { key ->
+              "$key=${bundleData[key]}"
+            }
+          Log.i("notificationExtraData: ", "${bundleToString}")
+          Log.i("notificationPayloadSerializable: ", "${bundleData.getSerializable("payload")}")
+          Log.i("notificationPayloadString: ", "${bundleData.getString("payload")}")
         }
         result.success(false)
         return
@@ -133,3 +156,23 @@ class ClearNotificationPlugin: FlutterPlugin, MethodCallHandler {
 inline fun <T> T.guard(block: T.() -> Unit): T {
   if (this == null) block(); return this
 }
+
+//fun convertBundleToJson(bundle: Bundle): JSONObject? {
+//  val json = JSONObject()
+//  val keys: Set<String> = bundle.keySet()
+//  for (key in keys) {
+//    try {
+//      if (bundle.get(key) != null && bundle.get(key).getClass().getName()
+//          .equals("android.os.Bundle")
+//      ) {
+//        val nestedBundle: Bundle = bundle.get(key) as Bundle
+//        json.put(key, convertToJson(nestedBundle))
+//      } else {
+//        json.put(key, JSONObject.wrap(bundle.get(key)))
+//      }
+//    } catch (e: JSONException) {
+//      System.out.println(e.toString())
+//    }
+//  }
+//  return json
+//}

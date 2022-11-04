@@ -23,10 +23,6 @@ abstract class ClearNotificationPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
-  }
-
   Future<bool?> clearAllNotifications() {
     throw UnimplementedError('clearAllNotifications() has not been implemented.');
   }
