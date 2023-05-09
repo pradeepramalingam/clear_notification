@@ -9,21 +9,25 @@ class MethodChannelClearNotification extends ClearNotificationPlatform {
   @visibleForTesting
   final methodChannel = const MethodChannel('clear_notification');
 
+  @override
   Future<bool?> clearAllNotifications() async {
     final result = await methodChannel.invokeMethod<bool>('clearAllNotifications');
     return result;
   }
 
+  @override
   Future<bool?> clearIOSNotificationWithIDs(List<String> notificationIDs) async {
     final result = await methodChannel.invokeMethod<bool>('clearIOSNotificationWithIDs', {"notificationIDs": notificationIDs});
     return result;
   }
 
+  @override
   Future<bool?> clearAndroidNotificationWithIDs(List<int> notificationIDs) async {
     final result = await methodChannel.invokeMethod<bool>('clearAndroidNotificationWithIDs', {"notificationIDs": notificationIDs});
     return result;
   }
 
+  @override
   Future<bool?> clearNotificationWithKeyValues(String key, List<dynamic> values, int dataTypeValue) async {
     final result = await methodChannel.invokeMethod<bool>('clearNotificationWithKeyValues', {"keyToFilter": key, "valuesToFilter": values, "valueDataType": dataTypeValue});
     return result;

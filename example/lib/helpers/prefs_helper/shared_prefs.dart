@@ -53,12 +53,7 @@ class SharedPrefs {
       return null;
     }
   }
-
-  Future clearPrefValue(_SharedPrefsKeys sharedPrefKey) async {
-    final SharedPreferences prefs = await _prefs;
-    await prefs.remove(sharedPrefKey.name);
-  }
-
+  
   Future setFCMToken(String token) async {
     _setStringValue(_SharedPrefsKeys.fcmToken, token);
   }

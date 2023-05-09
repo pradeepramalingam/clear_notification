@@ -1,4 +1,4 @@
-import 'package:clear_notification/clear_notification.dart';
+// import 'package:clear_notification/clear_notification.dart';
 import 'package:clear_notification_example/utils/import_utils_class_package.dart';
 
 void main() async {
@@ -116,10 +116,10 @@ class _MyAppState extends State<MyApp> {
       // print(result3);
 
       bool? result4 = await _clearNotificationPlugin.clearNotificationWithKeyValues('testKey', ['321', '564'], 1);
-      print(result4);
+      debugPrint(result4.toString().nonNullValue());
     }
     catch (exception) {
-      print(exception.toString());
+      debugPrint(exception.toString());
     }
     if (!mounted) return;
   }
@@ -135,11 +135,11 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: !_isLoggedIn ?
           ElevatedButton(
-            child: Text('Log In'),
+            child: const Text('Log In'),
             onPressed: () => logIn(),
           ) :
           ElevatedButton(
-            child: Text('Clear Notification'),
+            child: const Text('Clear Notification'),
             onPressed: () => clearNotification(),
           ),
         ),
