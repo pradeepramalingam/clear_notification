@@ -33,20 +33,31 @@ class LocalNotificationService {
     const InitializationSettings initializationSettings =
         InitializationSettings(
       android: AndroidInitializationSettings('@mipmap/ic_launcher'),
-      iOS: IOSInitializationSettings(
-        requestSoundPermission: false,
-        requestBadgePermission: false,
-        requestAlertPermission: false,
-      ),
+      iOS: DarwinInitializationSettings(
+          requestSoundPermission: false,
+          requestBadgePermission: false,
+          requestAlertPermission: false
+      )
     );
-    _notificationsPlugin.initialize(initializationSettings,
-        onSelectNotification: (String? messageDetails) async {
-      //android => this is executed when app is in foreground and tapped on notification
-      RemoteMessage? msg = messageDetails?.toRemoteMessage();
-      if (msg != null) {
-        handleNotificationTaps(message: msg);
-      }
-    });
+
+    _notificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: (NotificationResponse notificationResponse) {
+        switch (notificationResponse.notificationResponseType) {
+          case NotificationResponseType.selectedNotification:
+          case NotificationResponseType.selectedNotificationAction:
+            handleNotificationTaps(
+                message: notificationResponse.payload.nonNullValue().toRemoteMessage() ?? const RemoteMessage()
+            );
+            break;
+        }
+      },
+      onDidReceiveBackgroundNotificationResponse: (NotificationResponse notificationResponse) {
+        handleNotificationTaps(
+            message: notificationResponse.payload.nonNullValue().toRemoteMessage() ?? const RemoteMessage()
+        );
+      },
+    );
 
     _notificationTapListener();
     _firebaseForegroundListener();
@@ -146,7 +157,7 @@ class LocalNotificationService {
             priority: Priority.high,
             styleInformation: BigTextStyleInformation(''),
           ),
-          iOS: IOSNotificationDetails());
+          iOS: DarwinNotificationDetails());
 
       await _notificationsPlugin.show(id, message.notification?.title,
           message.notification?.body, notificationDetails,

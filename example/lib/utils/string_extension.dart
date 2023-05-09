@@ -1,20 +1,6 @@
 import 'package:clear_notification_example/utils/import_utils_class_package.dart';
 
 extension StringExtn on String {
-  // bool isValidEmail() {
-  //   return RegExp(
-  //       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-  //       .hasMatch(this);
-  // }
-  //
-  // bool isValidTurkishCitizenshipNo() {
-  //   return RegExp(r'^[1-9][0-9]{10}$').hasMatch(this);
-  // }
-  //
-  // bool isValidPassportNo() {
-  //   return RegExp(r'^[a-zA-Z0-9_]*$').hasMatch(this);
-  // }
-
   RemoteMessage? toRemoteMessage() {
     try {
       Map<String, dynamic> msgMap = jsonDecode(this);
@@ -52,11 +38,6 @@ extension StringExtn on String {
     newStr = newStr.removeSuffixWhiteSpace();
     return newStr;
   }
-
-  // bool isToReleasedForTransit() {
-  //   return this == 'DECLARATION_GROUP_RELEASED_FOR_TRANSIT' ||
-  //       this == 'DECLARATION_GROUP_ALL_RELEASED_FOR_TRANSIT';
-  // }
 }
 
 extension NullableStringExtn on String? {
