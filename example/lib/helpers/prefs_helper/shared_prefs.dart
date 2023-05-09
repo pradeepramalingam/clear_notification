@@ -53,7 +53,7 @@ class SharedPrefs {
       return null;
     }
   }
-  
+
   Future setFCMToken(String token) async {
     _setStringValue(_SharedPrefsKeys.fcmToken, token);
   }
